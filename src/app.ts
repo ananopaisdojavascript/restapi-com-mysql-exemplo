@@ -3,7 +3,7 @@ import mysql2 from 'mysql2';
 import bodyParser from 'body-parser';
 require('dotenv').config();
 const app = express();
-const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
 const connection = mysql2.createConnection({
     host: process.env.DATABASE_HOST,
@@ -79,6 +79,6 @@ app.put('/names/:id', updateName);
 app.delete('/names/:id', deleteName);
 
 // Comando para rodar o servidor
-app.listen(port, () => {
-    console.log(`Está funcionando na porta ${port}`);
+app.listen(PORT, () => {
+    console.log(`Está funcionando na porta ${PORT}`);
 })
