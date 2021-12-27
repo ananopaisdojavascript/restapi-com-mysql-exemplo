@@ -12,7 +12,7 @@
   "scripts": {
     "dev": "nodemon src/app.ts",
     "build": "rm -rf ./dist && tsc",
-    "prestart": "npm run ts:build",
+    "prestart": "npm run build",
     "start": "nodemon dist/app.js"
   },
   "repository": {
