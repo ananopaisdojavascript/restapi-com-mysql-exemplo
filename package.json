@@ -9,8 +9,9 @@
   "scripts": {
     "dev": "src/app.ts",
     "ts:build": "rm -rf ./dist && tsc",
+    "build": "tsc",
     "prestart": "npm run ts:build",
-    "start": "nodemon dist/app.js"
+    "start": "node dist/app.js"
   },
   "repository": {
     "type": "git",
