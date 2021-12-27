@@ -11,7 +11,8 @@
     "ts:build": "rm -rf ./dist && tsc",
     "build": "tsc",
     "prestart": "npm run ts:build",
-    "start": "node dist/app.js"
+    "start": "node dist/app.js",
+    "deploy": "git add . && git commit -m Heroku && git push heroku"
   },
   "repository": {
     "type": "git",
