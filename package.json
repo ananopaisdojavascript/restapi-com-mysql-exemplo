@@ -13,7 +13,8 @@
     "dev": "node src/app.ts",
     "build": "rm -rf ./dist && tsc",
     "prestart": "npm run build",
-    "start": "node dist/app.js"
+    "start": "node dist/app.js",
+    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "repository": {
     "type": "git",

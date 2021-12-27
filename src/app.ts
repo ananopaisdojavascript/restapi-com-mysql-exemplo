@@ -1,6 +1,7 @@
 import express, { Request, Response } from 'express';
 import mysql from 'mysql';
 import bodyParser from 'body-parser';
+import path from 'path';
 require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -42,12 +43,12 @@ function findOneName(request: Request, response: Response) {
 }
 
 function updateName(request: Request, response: Response) {
-    
-    connection.query('UPDATE `names` SET `name` = ?, `group` = ? WHERE ID = ' + request.params.id, 
-    [request.body.name, request.body.group, request.params.id], (error, results, fields) => {
-        if(error) throw error;
-        response.send(JSON.stringify(results));
-    })
+
+    connection.query('UPDATE `names` SET `name` = ?, `group` = ? WHERE ID = ' + request.params.id,
+        [request.body.name, request.body.group, request.params.id], (error, results, fields) => {
+            if (error) throw error;
+            response.send(JSON.stringify(results));
+        })
 }
 
 function deleteName(request: Request, response: Response) {
@@ -61,7 +62,19 @@ function deleteName(request: Request, response: Response) {
 
 app.use(bodyParser.urlencoded({ extended: true }))
 
-app.use(bodyParser.json())
+app.use(express.static(path.join(__dirname, 'client/build')));
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, 'client/build')));
+    //
+    app.get('*', (req, res) => {
+        res.sendfile(path.join(__dirname = 'client/build/index.html'));
+    })
+}
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/client/public/index.html'));
+})
 
 // Rota para registrar nomes
 app.post('/names', createName);
