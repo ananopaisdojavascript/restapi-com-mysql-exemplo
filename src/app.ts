@@ -62,9 +62,7 @@ function deleteName(request: Request, response: Response) {
 
 app.use(bodyParser.urlencoded({ extended: true }))
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname + '/client/public/index.html'));
-})
+app.use(bodyParser.json())
 
 // Rota para registrar nomes
 app.post('/names', createName);
