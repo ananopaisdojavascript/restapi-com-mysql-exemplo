@@ -6,7 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
 var mysql_1 = __importDefault(require("mysql"));
 var body_parser_1 = __importDefault(require("body-parser"));
-var path_1 = __importDefault(require("path"));
 require('dotenv').config();
 var app = (0, express_1.default)();
 var PORT = process.env.PORT || 3000;
@@ -60,8 +59,10 @@ function deleteName(request, response) {
     });
 }
 app.use(body_parser_1.default.urlencoded({ extended: true }));
-app.get('*', function (req, res) {
-    res.sendFile(path_1.default.join(__dirname + '/client/public/index.html'));
+app.use(body_parser_1.default.json());
+app.use(express_1.default.static(__dirname + '/dist/projectName'));
+app.get('/*', function (request, response) {
+    response.sendFile(__dirname + '/dist/projectName/index.html');
 });
 // Rota para registrar nomes
 app.post('/names', createName);
