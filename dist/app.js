@@ -8,7 +8,7 @@ var mysql_1 = __importDefault(require("mysql"));
 var body_parser_1 = __importDefault(require("body-parser"));
 require('dotenv').config();
 var app = (0, express_1.default)();
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 8000;
 var connection = mysql_1.default.createConnection({
     host: process.env.DATABASE_HOST,
     user: process.env.DATABASE_USER,
