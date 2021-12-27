@@ -64,6 +64,10 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(bodyParser.json())
 
+app.get('*', (request: Request, response: Response) => {
+    response.sendFile('main.html', { root: 'public' });
+});
+
 // Rota para registrar nomes
 app.post('/names', createName);
 

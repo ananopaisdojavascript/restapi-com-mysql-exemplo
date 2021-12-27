@@ -14,8 +14,7 @@
     "dev": "npm-run-all node src/app.ts",
     "build": "rm -rf ./dist && tsc",
     "prestart": "npm run build",
-    "start": "node dist/app.js",
-    "postinstall": "npm run build"
+    "start": "node dist/app.js"
   },
   "repository": {
     "type": "git",
