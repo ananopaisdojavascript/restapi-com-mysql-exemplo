@@ -10,7 +10,7 @@
     "dev": "src/app.ts",
     "ts:build": "rm -rf ./dist && tsc",
     "prestart": "npm run ts:build",
-    "start": "node dist/app.js"
+    "start": "nodemon dist/app.js"
   },
   "repository": {
     "type": "git",
