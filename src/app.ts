@@ -1,11 +1,11 @@
 import express, { Request, Response } from 'express';
-import mysql2 from 'mysql2';
+import mysql from 'mysql';
 import bodyParser from 'body-parser';
 require('dotenv').config();
 const app = express();
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 3000;
 
-const connection = mysql2.createConnection({
+const connection = mysql.createConnection({
     host: process.env.DATABASE_HOST,
     user: process.env.DATABASE_USER,
     password: process.env.DATABASE_PASSWORD,
