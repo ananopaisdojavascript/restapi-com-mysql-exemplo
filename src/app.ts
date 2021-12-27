@@ -64,8 +64,10 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(bodyParser.json())
 
-app.get('*', (request: Request, response: Response) => {
-    response.sendFile('main.html', { root: 'public' });
+app.use(express.static(__dirname + '/dist/projectName'));
+
+app.get('/*', function(request: Request, response: Response){
+    response.sendFile(__dirname +  '/dist/projectName/index.html');
 });
 
 // Rota para registrar nomes
