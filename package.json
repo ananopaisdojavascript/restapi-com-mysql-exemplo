@@ -10,7 +10,7 @@
     "test": "test"
   },
   "scripts": {
-    "dev": "node src/app.ts",
+    "dev": "npm-run-all node src/app.ts",
     "build": "rm -rf ./dist && tsc",
     "prestart": "npm run build",
     "start": "node dist/app.js",
