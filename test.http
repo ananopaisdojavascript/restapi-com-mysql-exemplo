@@ -1,2 +1,2 @@
-GET http://localhost:5000/members/1
+GET http://localhost:5000/members
 Content-Type: application/json
