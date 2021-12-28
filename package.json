@@ -11,8 +11,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "start": "node dist/app.js",
-    "heroku-postbuild": "tsc --prod"
+    "start": "node dist/app.js"
   },
   "repository": {
     "type": "git",
