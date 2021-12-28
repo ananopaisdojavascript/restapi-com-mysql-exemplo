@@ -1,6 +1,7 @@
 import express, { Request, Response } from 'express';
 import mysql2 from 'mysql2';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 require('dotenv').config();
 const app = express();
 const port = process.env.PORT || 3000;
@@ -19,7 +20,9 @@ connection.connect(function (err) {
 
 app.use(bodyParser.urlencoded({ extended: false }))
 
-app.use(bodyParser.json())
+app.use(bodyParser.json());
+
+app.use(cors());
 
 app.get('/members', (request: Request, response: Response) => {
     const query = 'SELECT * FROM members';
