@@ -1,2 +1,35 @@
-GET http://localhost:3000/members/1
+GET http://localhost:3000/members
 Content-Type: application/json
+
+###
+
+POST http://localhost:3000/members
+Content-Type: application/json
+
+{
+    "id": 25,
+    "name": "SoYeon",
+    "group": "G-IDLE"
+}
+
+###
+
+PUT http://localhost:3000/members/20
+Content-Type: application/json
+
+{
+    "id": 20,
+    "name": "Yves",
+    "group": "Loona"
+}
+
+###
+
+DELETE http://localhost:3000/members/25
+Content-Type: application/json
+
+{
+    "id": 25,
+    "name": "SoYeon",
+    "group": "G-IDLE"
+}
